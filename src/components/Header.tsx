@@ -60,6 +60,11 @@ const ContentHeader = styled.div`
       color: #FFF;
     }
 
+    hr {
+      margin-left: 6px !important;
+      width: 321px;
+    }
+
     p {
       margin: 5px;
       text-align: center;
@@ -96,6 +101,12 @@ const ContentHeader = styled.div`
           &:hover {
             padding-bottom: 10px;
             text-decoration: underline;
+
+            color: #7393C0;
+          }
+
+          &:active {
+            color: #7393C0;
           }
         }
       }
