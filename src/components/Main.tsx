@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import BgBanner from '../assets/images/background-main-banner.png'
 import ImgBanner from '../assets/images/isac-manoel-domingues.png'
+import CaseNumber from './CaseNumber'
 
 export const Main = () => {
   return (
@@ -31,6 +32,7 @@ export const Main = () => {
           </div>
         </div>
       </div>
+      <CaseNumber />
     </StyledMain >
   )
 }
@@ -39,6 +41,7 @@ export default Main
 
 const StyledMain = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100vw;
   max-width: 100vw;
