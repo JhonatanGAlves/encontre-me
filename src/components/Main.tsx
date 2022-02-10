@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import BgBanner from '../assets/images/background-main-banner.png'
-import ImgBanner from '../assets/images/isac-manoel-domingues.png'
+import AboutUs from './AboutUs'
 import CaseNumber from './CaseNumber'
 
 export const Main = () => {
@@ -22,10 +22,10 @@ export const Main = () => {
               Clique em <strong>SER UM ANJO</strong> ou, se tiver algum caso, clique em <strong>NOVO CASO</strong>.
             </p>
             <Buttons>
-              <a href='#'>
+              <a href='/'>
                 <button className='anjo-button'>ser um anjo</button>
               </a>
-              <a href='#'>
+              <a href='/'>
                 <button className='caso-button'>novo caso</button>
               </a>
             </Buttons>
@@ -33,6 +33,7 @@ export const Main = () => {
         </div>
       </div>
       <CaseNumber />
+      <AboutUs />
     </StyledMain >
   )
 }
