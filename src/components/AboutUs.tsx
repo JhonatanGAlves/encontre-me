@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 import ImgIsac from '../assets/images/isac-manoel-domingues.png'
@@ -11,7 +11,6 @@ export const AboutUs = () => {
   moment.locale('pt-BR')
   const currentGone = moment("01012004", "DDMMYYYY").fromNow(true)
   const currentYear = moment("02081986", "DDMMYYYY").fromNow(true)
-
 
   return (
     <StyledAboutUs>
@@ -51,6 +50,9 @@ export const AboutUs = () => {
         </div>
         <div className='about-main-right'>
           <img src={ImgIsac} alt='Isac Manoel Domingues' />
+          <span>Isac Manoel Domingues<br />
+            (16 anos na foto)
+          </span>
         </div>
       </div>
       <div className='about-how'>
@@ -153,7 +155,18 @@ const StyledAboutUs = styled.div`
     }
 
     .about-main-right {
+      display: flex;
+      flex-direction: column;
       margin: auto;
+
+      span {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+
+        color: #747474
+      }
     }
   }
 
