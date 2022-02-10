@@ -12,11 +12,11 @@ export const Header = () => {
         </div>
         <div className='right-header'>
           <ul className='menu-header'>
-            <li><a href='#'>início</a></li>
-            <li><a href='#'>sobre</a></li>
-            <li><a href='#'>casos registrados</a></li>
-            <li><a href='#'>central de notícias</a></li>
-            <li><a style={{ textTransform: 'none' }} href='#'>FAQs</a></li>
+            <li><a href='/'>início</a></li>
+            <li><a href='/'>sobre</a></li>
+            <li><a href='/'>casos registrados</a></li>
+            <li><a href='/'>central de notícias</a></li>
+            <li><a style={{ textTransform: 'none' }} href='/'>FAQs</a></li>
           </ul>
         </div>
       </ContentHeader>
