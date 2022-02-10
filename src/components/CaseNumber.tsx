@@ -98,7 +98,7 @@ const StyledCaseNumber = styled.div`
         font-size: 21px;
         font-weight: 300;
 
-        color: #2c2c2c;
+        color: #747474;
       }
 
       .case-data {
@@ -117,7 +117,7 @@ const StyledCaseNumber = styled.div`
             padding-left: 10px;
             border-radius: 10px 0 0 10px;
 
-            color: #2c2c2c;
+            color: #747474;
             border-left: 20px solid #78a5e6;
 
             span {
@@ -135,7 +135,7 @@ const StyledCaseNumber = styled.div`
             padding-left: 10px;
             border-radius: 10px 0 0 10px;
 
-            color: #2c2c2c;
+            color: #747474;
             border-left: 20px solid #78a5e6;
 
             span {
