@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import BgBanner from '../assets/images/background-main-banner.png'
+import BgBanner from '../../assets/images/background-main-banner.png'
 import AboutUs from './AboutUs'
 import CaseNumber from './CaseNumber'
 

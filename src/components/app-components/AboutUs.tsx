@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
-import ImgIsac from '../assets/images/isac-manoel-domingues.png'
-import BgAbout from '../assets/images/background-sobre.png'
-import WhatsIcon from '../assets/images/whatsapp-icon.png'
-import GmailIcon from '../assets/images/gmail-icon.png'
+import ImgIsac from '../../assets/images/isac-manoel-domingues.png'
+import BgAbout from '../../assets/images/background-sobre.png'
+import WhatsIcon from '../../assets/images/whatsapp-icon.png'
+import GmailIcon from '../../assets/images/gmail-icon.png'
 
 
 export const AboutUs = () => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import ManBlueLight from '../assets/images/homem-silhueta-azul-claro1.png'
-import KidBlueDark from '../assets/images/homem-silhueta-azul-mid1.png'
-import WomanBlueLight from '../assets/images/silhueta-negra-em-pe-de-mulher1.png'
+import ManBlueLight from '../../assets/images/homem-silhueta-azul-claro1.png'
+import KidBlueDark from '../../assets/images/homem-silhueta-azul-mid1.png'
+import WomanBlueLight from '../../assets/images/silhueta-negra-em-pe-de-mulher1.png'
 
 export const CaseNumber = () => {
   return (
