@@ -34,12 +34,12 @@ export const Footer = () => {
 
 export default Footer
 
-const StyledFooter = styled.div`
+const StyledFooter = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  width: 100vw;
+  width: 100%;
   padding: 80px 0;
 
   background-color: #2E2E2E;
@@ -86,7 +86,7 @@ const StyledFooter = styled.div`
   }
 `
 
-const StyledBaseBoard = styled.div`
+const StyledBaseBoard = styled.section`
   width: 100%;
   display: flex;
   justify-content: center;

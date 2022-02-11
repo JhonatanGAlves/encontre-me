@@ -5,15 +5,17 @@ export const Header = () => {
   return (
     <ContainerHeader>
       <ContentHeader>
-        <div className='left-header'>
-          <h3>encontre-me</h3>
-          <hr style={{ margin: '0' }} />
-          <p>projeto voluntário em prol de pessoas desaparecidas</p>
-        </div>
+        <a className='left-header' href='/'>
+          <div className='logo-header'>
+            <h3>encontre-me</h3>
+            <hr style={{ margin: '0' }} />
+            <p>projeto voluntário em prol de pessoas desaparecidas</p>
+          </div>
+        </a>
         <div className='right-header'>
-          <ul className='menu-header'>
+          <ul className='nav-list'>
             <li><a href='/'>início</a></li>
-            <li><a href='/'>sobre</a></li>
+            <li><a href='#about'>sobre</a></li>
             <li><a href='/'>casos registrados</a></li>
             <li><a href='/'>central de notícias</a></li>
             <li><a style={{ textTransform: 'none' }} href='/'>FAQs</a></li>
@@ -26,29 +28,33 @@ export const Header = () => {
 
 export default Header
 
-const ContainerHeader = styled.div`
+const ContainerHeader = styled.section`
   position: absolute;
   top: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 120px;
 
   background-color: #00000030;
 `
-const ContentHeader = styled.div`
+const ContentHeader = styled.nav`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 1450px;
-  max-width: 1450px;
+  margin: auto;
+  width: 1465px;
+  max-width: 1465px;
+  min-width: 320px;
 
   .left-header {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    width: 335px;
+    text-decoration: none;
+
+    color: #FFF;
+  }
+
+  .logo-header {
 
     h3 {
       margin: 0;
@@ -76,40 +82,33 @@ const ContentHeader = styled.div`
     }
   }
 
-  .right-header {
+  .nav-list {
     display: flex;
-    justify-content: end;
-    align-items: center;
-    width: 1115px;
-    max-width: 1115px;
+    flex-wrap: wrap;
+    list-style: none;
 
-    ul {
-      display: flex;
-      list-style: none;
+    li {
+      margin-left: 5px;
+    }
 
-      li {
-        margin: 0 15px;
+    a {
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: 0ms.1s;
 
-        a {
-          font-size: 18px;
-          font-weight: 600;
-          text-transform: uppercase;
-          text-decoration: none;
+      color: #FFF;
 
-          color: #FFF;
+      &:hover {
+        background-color: #00000030;
+      }
 
-          &:hover {
-            padding-bottom: 10px;
-            text-decoration: underline;
-
-            color: #7393C0;
-          }
-
-          &:active {
-            color: #7393C0;
-          }
-        }
+      &:active {
+        color: #7393C0;
       }
     }
   }
-`
+  `

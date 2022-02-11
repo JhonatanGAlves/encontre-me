@@ -13,13 +13,13 @@ export const AboutUs = () => {
   const currentYear = moment("02081986", "DDMMYYYY").fromNow(true)
 
   return (
-    <StyledAboutUs>
+    <StyledAboutUs id='about'>
       <div className='about-txt'>
         <h2>sobre <strong>nós</strong></h2>
       </div>
-      <div className='content-about-main'>
+      <section className='content-about-main'>
         <div className='about-main-left'>
-          <h3>Esse, da imagem ao lado, é o <strong>ISAC MANOEL DOMINGUES</strong>,
+          <h3>Esse, da imagem, é o <strong>ISAC MANOEL DOMINGUES</strong>,
             da cidade de Areiópolis, interior do estado de São Paulo, ele é <strong>SURDO </strong>
             e faz {currentGone} anos que está <strong>desaparecido</strong>. Desapareceu no dia 01/04/2004,
             com 17 anos, atualmente com {currentYear}.<br /><br />
@@ -54,8 +54,8 @@ export const AboutUs = () => {
             (16 anos na foto)
           </span>
         </div>
-      </div>
-      <div className='about-how'>
+      </section>
+      <section className='about-how'>
         <h2>como <strong>funciona?</strong></h2>
         <h3>Pensando nisso, decidimos criar uma plataforma web, onde, qualquer pessoa
           pode se cadastrar para receber novos casos de desaparecimento ou, até
@@ -68,7 +68,7 @@ export const AboutUs = () => {
         <a href='/'>
           <button className='access-button'>acessar todos os casos</button>
         </a>
-      </div>
+      </section>
 
     </StyledAboutUs>
   )
@@ -76,7 +76,7 @@ export const AboutUs = () => {
 
 export default AboutUs
 
-const StyledAboutUs = styled.div`
+const StyledAboutUs = styled.section`
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -84,6 +84,7 @@ const StyledAboutUs = styled.div`
   align-items: center;
   width: 100%;
   padding: 50px 0 115px 0;
+
   background-image: url(${BgAbout});
   background-repeat: no-repeat;
   background-size: cover;
@@ -102,8 +103,8 @@ const StyledAboutUs = styled.div`
 
   .content-about-main {
     display: flex;
-    width: 1450px;
-    max-width: 1450px;
+    width: 1465px;
+    max-width: 1465px;
 
     .about-main-left {
       width: 1000px;
