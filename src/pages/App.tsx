@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import Main from './components/Main'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import Main from '../components/Main'
 
 export const App = () => {
   return (
@@ -20,7 +20,7 @@ export default App
 const StyledApp = styled.div`
   margin: 0;
   padding: 0;
-  width: 100vw;
+  box-sizing: border-box;
 
   background-color: #EBEBEB;
 `
