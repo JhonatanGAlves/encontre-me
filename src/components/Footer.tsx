@@ -24,8 +24,8 @@ export const Footer = () => {
         </Buttons>
       </StyledFooter>
       <StyledBaseBoard>
-        <p>Direitos reservados &copy;{currentYear} <a href='/'>ENCONTRE-ME</a> | Desenvolvido por <a href='/'>Jhonatan Alves</a><br />
-          Termos de Uso | Política de Privacidiade
+        <p>Direitos reservados &copy;{currentYear} <a href='/'>ENCONTRE-ME</a> | Desenvolvido por <a href='https://github.com/JhonatanGAlves' target='_blank' rel='noreferrer'>Jhonatan Alves</a><br />
+          <a href='/'>Termos de Uso</a> | <a href='/'>Política de Privacidiade</a>
         </p>
       </StyledBaseBoard>
     </>
