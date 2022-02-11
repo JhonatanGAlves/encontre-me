@@ -49,8 +49,8 @@ const StyledCaseNumber = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 1450px;
-  max-width: 1450px;
+  width: 1465px;
+  max-width: 1465px;
   padding: 50px 0 115px 0;
 
   .case-txt {
@@ -68,8 +68,8 @@ const StyledCaseNumber = styled.div`
   .content-case-main {
     display: flex;
     justify-content: center;
-    width: 1450px;
-    max-width: 1450px;
+    width: 1465px;
+    max-width: 1465px;
 
     .content-case-left {
       display: flex;

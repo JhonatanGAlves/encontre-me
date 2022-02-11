@@ -40,16 +40,14 @@ export const Main = () => {
 
 export default Main
 
-const StyledMain = styled.div`
+const StyledMain = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100vw;
-  max-width: 100vw;
+  width: 100%;
 
   .banner-main {
-    background-image: url(${BgBanner});
-    background-repeat: no-repeat;
+    background: url(${BgBanner}) no-repeat;
     background-size: cover;
     
     overflow: hidden;
@@ -59,8 +57,8 @@ const StyledMain = styled.div`
     
     .content-banner {
       margin: auto;
-      width: 1450px;
-      max-width: 1450px;
+      width: 1465px;
+      max-width: 1465px;
       padding: 260px 0 100px 0;
 
       .txt-buttons-banner {
