@@ -25,11 +25,11 @@ export const AboutUs = () => {
             com 17 anos, atualmente com {currentYear}.<br /><br />
 
             Ele é o motivo pelo qual este site existe, pois no dia do desaparecimento
-            foi feito a ocorrência pelos pais na delegacia, porém, disseram ao pais
+            foi feito a ocorrência pelos pais na delegacia, porém, disseram aos pais
             que teriam que aguardar 24 horas para que eles (policiais) começassem
             a procurar por ele.<br /><br />
 
-            Se a ação de procurar tivesse sido de imediato, talvez hoje a história
+            Se a ação de procurar tivesse ocorrido de imediato, talvez hoje a história
             poderia ser outra...<br /><br />
 
             <strong><i>Caso REALMENTE tenha alguma informação sobre o caso, entre em contato
