@@ -85,7 +85,7 @@ const StyledMain = styled.div`
     }
   }
 `
-const Buttons = styled.div`
+export const Buttons = styled.div`
   display: flex;
 
   a {
