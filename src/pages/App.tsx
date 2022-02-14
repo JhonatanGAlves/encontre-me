@@ -3,14 +3,19 @@ import styled from 'styled-components'
 import Footer from '../components/app-components/Footer'
 import Header from '../components/app-components/Header'
 import Main from '../components/app-components/Main'
+import { Routes, Route } from 'react-router-dom'
 
 export const App = () => {
   return (
-    <StyledApp className="App">
-      <Header />
-      <Main />
-      <Footer />
-    </StyledApp>
+    <Routes>
+      <Route path='/' element={
+        <StyledApp className="App">
+          <Header />
+          <Main />
+          <Footer />
+        </StyledApp>
+      } />
+    </Routes>
   )
 }
 
