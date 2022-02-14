@@ -5,6 +5,7 @@ import ImgIsac from '../../assets/images/isac-manoel-domingues.png'
 import BgAbout from '../../assets/images/background-sobre.png'
 import WhatsIcon from '../../assets/images/whatsapp-icon.png'
 import GmailIcon from '../../assets/images/gmail-icon.png'
+import { Link } from 'react-router-dom'
 
 
 export const AboutUs = () => {
@@ -65,9 +66,9 @@ export const AboutUs = () => {
           juntamento da foto, assim, ela passa a ser mais um olho voltado à procura
           do ser desaparecido.
         </h3>
-        <a href='/'>
+        <Link to='/casos-registrados'>
           <button className='access-button'>acessar todos os casos</button>
-        </a>
+        </Link>
       </section>
 
     </StyledAboutUs>
