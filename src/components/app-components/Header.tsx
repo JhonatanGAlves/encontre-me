@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Header = () => {
@@ -14,9 +15,9 @@ export const Header = () => {
         </a>
         <div className='right-header'>
           <ul className='nav-list'>
-            <li><a href='/'>início</a></li>
+            <li><Link to='/'>início</Link></li>
             <li><a href='#about'>sobre</a></li>
-            <li><a href='/'>casos registrados</a></li>
+            <li><Link to='/casos-registrados'>casos registrados</Link></li>
             <li><a href='/'>central de notícias</a></li>
             <li><a style={{ textTransform: 'none' }} href='/'>FAQs</a></li>
           </ul>
