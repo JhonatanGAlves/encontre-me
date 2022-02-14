@@ -2,7 +2,7 @@ import React from 'react'
 
 export const AngelRegistration = () => {
   return (
-    <div>...</div>
+    <div>..</div>
   )
 }
 
