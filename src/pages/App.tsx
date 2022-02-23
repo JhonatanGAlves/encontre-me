@@ -4,6 +4,7 @@ import Footer from '../components/app-components/Footer'
 import Header from '../components/app-components/Header'
 import Main from '../components/app-components/Main'
 import { Routes, Route } from 'react-router-dom'
+import RegisteredCases from './RegisteredCases'
 
 export const App = () => {
   return (
@@ -15,6 +16,9 @@ export const App = () => {
           <Footer />
         </StyledApp>
       } />
+      <Route path='casos-registrados' element={
+        <RegisteredCases />
+      } />
     </Routes>
   )
 }
@@ -22,7 +26,7 @@ export const App = () => {
 export default App
 
 /*---------STYLED COMPONENTS---------- */
-const StyledApp = styled.div`
+const StyledApp = styled.body`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
