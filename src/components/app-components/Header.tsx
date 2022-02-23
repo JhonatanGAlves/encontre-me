@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import IconImg from '../../assets/images/icon-user.png'
 
 export const Header = () => {
+
   return (
-    <ContainerHeader>
+    <ContainerHeader className='container-header'>
       <ContentHeader>
         <a className='left-header' href='/'>
           <div className='logo-header'>
@@ -21,6 +23,9 @@ export const Header = () => {
             <li><a href='/'>central de notícias</a></li>
             <li><a style={{ textTransform: 'none' }} href='/'>FAQs</a></li>
           </ul>
+          <a className='header-user' href='/'>
+            <img src={IconImg} alt="Imagem de usuário" />
+          </a>
         </div>
       </ContentHeader>
     </ContainerHeader>
@@ -29,7 +34,7 @@ export const Header = () => {
 
 export default Header
 
-const ContainerHeader = styled.section`
+const ContainerHeader = styled.header`
   position: absolute;
   top: 0;
   display: flex;
@@ -83,33 +88,47 @@ const ContentHeader = styled.nav`
     }
   }
 
-  .nav-list {
+  .right-header {
     display: flex;
-    flex-wrap: wrap;
-    list-style: none;
+    align-items: center;
 
-    li {
-      margin-left: 5px;
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+  
+      li {
+        margin-left: 5px;
+      }
+  
+      a {
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: 0ms.1s;
+  
+        color: #FFF;
+  
+        &:hover {
+          background-color: #00000030;
+        }
+  
+        &:active {
+          color: #7393C0;
+        }
+      }
     }
 
-    a {
-      font-size: 18px;
-      font-weight: 600;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      transition: 0ms.1s;
+    .header-user {
+      margin-left: 15px;
 
-      color: #FFF;
-
-      &:hover {
-        background-color: #00000030;
-      }
-
-      &:active {
-        color: #7393C0;
+      img {
+        width: 30px;
       }
     }
   }
+
   `
