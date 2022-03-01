@@ -25,7 +25,7 @@ export const Main = () => {
               <a href='/'>
                 <button className='anjo-button'>ser um anjo</button>
               </a>
-              <a href='/'>
+              <a href='/novo-caso'>
                 <button className='caso-button'>novo caso</button>
               </a>
             </Buttons>

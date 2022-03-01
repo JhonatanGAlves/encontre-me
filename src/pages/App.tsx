@@ -4,6 +4,7 @@ import Footer from '../components/app-components/Footer'
 import Header from '../components/app-components/Header'
 import Main from '../components/app-components/Main'
 import { Routes, Route } from 'react-router-dom'
+import NewCase from './NewCase'
 import RegisteredCases from './RegisteredCases'
 
 export const App = () => {
@@ -15,6 +16,9 @@ export const App = () => {
           <Main />
           <Footer />
         </StyledApp>
+      } />
+      <Route path='novo-caso' element={
+        <NewCase />
       } />
       <Route path='casos-registrados' element={
         <RegisteredCases />
