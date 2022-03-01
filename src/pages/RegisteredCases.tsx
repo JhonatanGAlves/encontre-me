@@ -41,11 +41,62 @@ export const RegisteredCases = () => {
                   <option value='selected-state'>Selecione...</option>
                 </select>
               </label>
+              <button type='submit'>pesquisar</button>
             </form>
           </div>
         </div>
         <div className='content-right'>
           <h2>casos registrados</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ID Caso</th>
+                <th>Data Post.</th>
+                <th>Data Desap.</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Sexo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>case.id</td>
+                <td>case.data_postagem</td>
+                <td>case.data_desaparecimento</td>
+                <td>case.nome</td>
+                <td>case.idade</td>
+                <td>case.cidade</td>
+                <td>case.estado</td>
+                <td>case.sexo</td>
+              </tr>
+              <tr>
+                <td>case.id</td>
+                <td>case.data_postagem</td>
+                <td>case.data_desaparecimento</td>
+                <td>case.nome</td>
+                <td>case.idade</td>
+                <td>case.cidade</td>
+                <td>case.estado</td>
+                <td>case.sexo</td>
+              </tr>
+            </tbody>
+            {/* {casesList.map(case => (
+              <tbody>
+                <tr>
+                  <td>case.id</td>
+                  <td>case.data_postagem</td>
+                  <td>case.data_desaparecimento</td>
+                  <td>case.nome</td>
+                  <td>case.idade</td>
+                  <td>case.cidade</td>
+                  <td>case.estado</td>
+                  <td>case.sexo</td>
+                </tr>
+              </tbody>
+              ))} */}
+          </table>
         </div>
       </main>
     </StyledRegisteredCases>
@@ -74,8 +125,6 @@ const StyledRegisteredCases = styled.section`
     max-width: 1465px;
     padding: 50px 0;
 
-    /* background-color: #001b41; */
-
     .content-left {
       display: flex;
       flex-direction: column;
@@ -86,8 +135,8 @@ const StyledRegisteredCases = styled.section`
         flex-direction: column;
         align-items: center;
         padding: 45px 20px 0;
-        width: 365px;
-        height: 190px;
+        width: 345px;
+        height: 170px;
         font-size: 24px;
         font-weight: 300;
 
@@ -119,7 +168,7 @@ const StyledRegisteredCases = styled.section`
       .container-pesquisa-rapida {
         padding: 50px 20px;
         margin-top: 50px;
-        width: 365px;
+        width: 345px;
         font-size: 24px;
         font-weight: 300;
 
@@ -167,13 +216,28 @@ const StyledRegisteredCases = styled.section`
           .select-field {
             width: 250px;
           }
+
+          button {
+            width: 140px;
+            height: 50px;
+            font-size: 18px;
+            text-transform: capitalize;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+
+            color: #FFF;
+            background-color: #3F5F8B;
+
+            &:hover {
+              background-color: #4d7ab9;
+            }
+          }
         }
       }
     }
 
     .content-right {
-      width: 900px;
-
       background-color: #FFF;
       box-shadow: 0 16px 16px -8px #00000025;
 
@@ -182,6 +246,42 @@ const StyledRegisteredCases = styled.section`
         text-transform: capitalize;
 
         color: #747474;
+      }
+
+      table {
+        table-layout: fixed;
+        border-collapse: collapse;
+
+        th, td {
+          padding: 5px;
+          font-size: 16px;
+          text-align: left;
+        }
+
+        /* td:nth-child(1), th:nth-child(1) { min-width: 200px; }
+        td:nth-child(2), th:nth-child(2) { min-width: 200px; }
+        td:nth-child(3), th:nth-child(3) { width: 350px; } */
+      }
+      
+      thead {
+        background-color: #747474;
+        color: #FFF;
+
+        tr {
+          display: block;
+          position: relative;
+        }
+      }
+
+
+
+      tbody {
+        display: block;
+        overflow: auto;
+
+        tr:nth-child(even) {
+          background-color: #C4C4C4;
+        }
       }
     }
   }
