@@ -1,16 +1,77 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Header from '../components/app-components/Header'
 import moment from 'moment'
+import { NewCaseTypes } from '../types/NewCase'
+import supabase from '../client'
 
-export const NewCase = () => {
-  const dateNow = moment()
+export const NewCase = (cases: NewCaseTypes) => {
+  const [fullName, setFullName] = useState('')
+  const [disappearanceDate, setDisappearanceDate] = useState('')
+  const [disappearanceCity, setDisappearanceCity] = useState('Selecione a cidade...')
+  const [city, setCity] = useState('Selecione a cidade...')
+  const [birthDate, setBirthDate] = useState('')
+  const [sexo, setSexo] = useState('Selecione o sexo')
+  const [motherName, setMotherName] = useState('')
+  const [fatherName, setFatherName] = useState('')
+  const [contact, setContact] = useState('')
+  const [kinshipDegree, setKinshipDegree] = useState('Selecione...')
+  const [relevantInformations, setRelevantInformations] = useState('')
+  const [casesList, setCasesList] = useState('')
 
-  const inputDate = document.querySelector('#data-de-nascimento')
+  useEffect(() => {
+    supabase
+      .from('cases_list')
+      .select('*')
+      .order('data_postagem', { ascending: false })
+  }, [])
+
+  // const dateNow = moment()
+
+  // const inputDate = document.querySelector('#data-de-nascimento')
 
   // const value = inputDate.value
 
-  console.log({ dateNow })
+  // console.log({ dateNow })
+
+  const handleNewCase = async (cases: string) => {
+
+    const casesList = {
+      nome_completo: fullName,
+      data_desaparecimento: disappearanceDate,
+      cidade_desaparecimento: disappearanceCity,
+      cidade: city,
+      data_nascimento: birthDate,
+      sexo: sexo,
+      nome_mae: motherName,
+      nome_pai: fatherName,
+      contato: contact,
+      grau_parentesco: kinshipDegree,
+      informacoes_relevantes: relevantInformations,
+    }
+
+    try {
+      await supabase
+        .from('cases_list')
+        .insert([casesList])
+
+      setFullName('')
+      setDisappearanceDate('')
+      setDisappearanceCity('Selecione a cidade...')
+      setCity('Selecione a cidade...')
+      setBirthDate('')
+      setSexo('Selecione o sexo')
+      setMotherName('')
+      setFatherName('')
+      setContact('')
+      setKinshipDegree('Selecione...')
+      setRelevantInformations('')
+      setCasesList('')
+
+    } catch (error) {
+      console.log('error', error)
+    }
+  }
 
   return (
     <StyledNewCase>
@@ -30,72 +91,116 @@ export const NewCase = () => {
               <label>
                 Nome Completo:
                 <input
+                  value={fullName}
                   type='text'
                   id='nome-completo'
                   placeholder='Digite o nome completo...'
+                  onChange={(e) => {
+                    const value = e.target.value
+                    setFullName(value)
+                  }}
                 />
               </label>
               <label>
-                Data do Desaparecimento: {dateNow ? `(À ${23} anos atrás)` : ''}
-                <input className='data-desaparecimento'
+                Data do Desaparecimento:
+                <input
+                  value={disappearanceDate}
+                  className='data-desaparecimento'
                   type='date'
                   placeholder='Digite a data do desaparecimento...'
+                  onChange={(e) => {
+                    const value = e.target.value
+                    setDisappearanceDate(value)
+                  }}
                 />
               </label>
               <label>
                 Desapareceu na cidade de:
                 <select name='cidade-desaparecimento' id='cidade-desaparecimento'>
-                  <option value=''>Selecione a cidade</option>
+                  <option value={disappearanceCity}></option>
                 </select>
               </label>
               <label>
                 Morador da cidade de:
                 <select name='mora-na-cidade' id='mora-na-cidade'>
-                  <option value=''>Selecione a cidade</option>
+                  <option value={city}></option>
                 </select>
               </label>
               <label>
-                Data de Nascimento: {dateNow ? `(Atualmente com ${23})` : ''}
-                <input className='data-nascimento'
+                Data de Nascimento:
+                <input
+                  value={birthDate}
+                  className='data-nascimento'
                   type='date'
                   placeholder='Digite a data de nascimento...'
+                  onChange={(e) => {
+                    const value = e.target.value
+                    setBirthDate(value)
+                  }}
                 />
+              </label>
+              <label>
+                Sexo:
+                <select name='sexo' id='sexo'>
+                  <option value={sexo}></option>
+                </select>
               </label>
               <label>
                 Nome da mãe:
                 <input
+                  value={motherName}
                   type='text'
                   id='nome-mãe'
                   placeholder='Digite o nome da mãe...'
+                  onChange={(e) => {
+                    const value = e.target.value
+                    setMotherName(value)
+                  }}
                 />
               </label>
               <label>
                 Nome do pai:
                 <input
+                  value={fatherName}
                   type='text'
                   id='nome-pai'
                   placeholder='Digite o nome do pai...'
+                  onChange={(e) => {
+                    const value = e.target.value
+                    setFatherName(value)
+                  }}
                 />
               </label>
               <label>
                 Contato:
                 <input
+                  value={contact}
                   type='tel'
                   id='contato'
                   placeholder='(00) 0000-0000'
+                  onChange={(e) => {
+                    const value = e.target.value
+                    setContact(value)
+                  }}
                 />
               </label>
               <label>
                 Qual o seu grau de parentesco com o desaparecido(a)?
-                <input
-                  type='text'
-                  id='grau-parentesco'
-                  placeholder='Digite o grau de parentesco...'
-                />
+                <select name='grau_parentesco' id='grau_parentesco'>
+                  <option value={kinshipDegree}></option>
+                </select>
               </label>
               <label>
                 Informações relevantes:
-                <textarea placeholder='Digite algumas informações relevantes...'></textarea>
+                <textarea
+                  value={relevantInformations}
+                  placeholder='Digite algumas informações relevantes...'
+                  onChange={(e) => {
+                    const value = e.target.value
+                    setRelevantInformations(value)
+                  }}
+                >
+                </textarea>
               </label>
               <label>
                 Envie uma foto recente do desaparecido(a).
@@ -104,7 +209,14 @@ export const NewCase = () => {
                   id='import-photo'
                 />
               </label>
-              <button className='input-button' type='submit'>Cadastrar</button>
+              <button
+                className='input-button'
+                type='submit'
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleNewCase(casesList)
+                }
+                }>Cadastrar</button>
             </form>
           </div>
         </section>
