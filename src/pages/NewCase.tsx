@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Header from '../components/app-components/Header'
-import moment from 'moment'
 import supabase from '../client'
 
 export const NewCase = () => {
