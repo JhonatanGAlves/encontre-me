@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Header from '../components/app-components/Header'
 import moment from 'moment'
-import { NewCaseTypes } from '../types/NewCase'
 import supabase from '../client'
 
-export const NewCase = (cases: NewCaseTypes) => {
+export const NewCase = () => {
   const [fullName, setFullName] = useState('')
   const [disappearanceDate, setDisappearanceDate] = useState('')
   const [disappearanceCity, setDisappearanceCity] = useState('Selecione a cidade...')
@@ -17,14 +16,6 @@ export const NewCase = (cases: NewCaseTypes) => {
   const [contact, setContact] = useState('')
   const [kinshipDegree, setKinshipDegree] = useState('Selecione...')
   const [relevantInformations, setRelevantInformations] = useState('')
-  const [casesList, setCasesList] = useState('')
-
-  useEffect(() => {
-    supabase
-      .from('cases_list')
-      .select('*')
-      .order('data_postagem', { ascending: false })
-  }, [])
 
   // const dateNow = moment()
 
@@ -34,7 +25,7 @@ export const NewCase = (cases: NewCaseTypes) => {
 
   // console.log({ dateNow })
 
-  const handleNewCase = async (cases: string) => {
+  const handleNewCase = async () => {
 
     const casesList = {
       nome_completo: fullName,
@@ -66,7 +57,6 @@ export const NewCase = (cases: NewCaseTypes) => {
       setContact('')
       setKinshipDegree('Selecione...')
       setRelevantInformations('')
-      setCasesList('')
 
     } catch (error) {
       console.log('error', error)
@@ -214,7 +204,7 @@ export const NewCase = (cases: NewCaseTypes) => {
                 type='submit'
                 onClick={(e) => {
                   e.preventDefault()
-                  handleNewCase(casesList)
+                  handleNewCase()
                 }
                 }>Cadastrar</button>
             </form>
