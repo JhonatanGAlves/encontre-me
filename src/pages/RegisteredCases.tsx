@@ -1,44 +1,105 @@
-import React from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import Header from '../components/app-components/Header'
+import supabase from '../client'
 
 export const RegisteredCases = () => {
+  const [casesList, setCasesList] = useState([])
+  const [search, setSearch] = useState('')
+  const [name, setName] = useState('')
+  const [nameMother, setNameMother] = useState('')
+  const [nameFather, setNameFather] = useState('')
+
+  const searchName = (e: any) => {
+    setSearch(e.target.value)
+    setName(e.target.value)
+  }
+
+  const searchNameMother = (e: any) => {
+    setSearch(e.target.value)
+    setNameMother(e.target.value)
+  }
+
+  const searchNameFather = (e: any) => {
+    setSearch(e.target.value)
+    setNameFather(e.target.value)
+  }
+
+  useEffect(() => {
+    fetchCases()
+  }, [])
+
+  async function fetchCases() {
+    const { data }: any = await supabase
+      .from('cases_list')
+      .select('*')
+    setCasesList(data)
+    console.log('cases', data)
+  }
+
+  const filteredCases = useMemo(() => {
+    if (casesList) {
+      return casesList.filter(
+        (cases: any) =>
+          cases.nome_completo.toLowerCase().includes(search.toLowerCase()) ||
+          cases.nome_mae.toLowerCase().includes(search.toLowerCase())
+      )
+    } else {
+      return []
+    }
+  }, [casesList, search])
+
   return (
     <StyledRegisteredCases>
       <Header />
-      <main className='container-main-casos'>
+      <main className='container-main-cases'>
         <div className='content-left'>
-          <div className='container-registrar-caso'>
+          <div className='container-register-cases'>
             <span>Você tem algum caso?</span>
-            <a href='/'>
-              <button className='button-registrar'>Registrar</button>
+            <a href='/novo-caso'>
+              <button className='button-register'>Registrar</button>
             </a>
           </div>
-          <div className='container-pesquisa-rapida'>
+          <div className='container-quick-search'>
             <span>pesquisa rápida</span>
             <form>
               <label>
-                ID do caso
-                <input className='input-id' type='number' name='id' />
+                Nome:
+                <input
+                  className='full-name'
+                  type='text'
+                  value={name}
+                  onChange={searchName}
+                />
               </label>
               <label>
-                Nome
-                <input type='text' name='name' />
+                Nome da Mãe:
+                <input
+                  className='input-name-mother'
+                  type='text'
+                  value={nameMother}
+                  onChange={searchNameMother}
+                />
               </label>
               <label>
-                Sobrenome
-                <input type='text' name='last-name' />
+                Nome do Pai:
+                <input
+                  className='input-name-father'
+                  type='text'
+                  value={nameFather}
+                  onChange={searchNameFather}
+                />
               </label>
               <label>
-                Cidade
+                Morador da Cidade de:
                 <select className='select-field'>
                   <option value='selected-city'>Selecione...</option>
                 </select>
               </label>
               <label>
-                Estado
+                Sexo
                 <select className='select-field'>
-                  <option value='selected-state'>Selecione...</option>
+                  <option value='selected-sexo'>Selecione...</option>
                 </select>
               </label>
               <button type='submit'>pesquisar</button>
@@ -52,50 +113,38 @@ export const RegisteredCases = () => {
               <tr>
                 <th>ID Caso</th>
                 <th>Data Post.</th>
+                <th>Nome Completo.</th>
                 <th>Data Desap.</th>
-                <th>Nome</th>
-                <th>Idade</th>
-                <th>Cidade</th>
-                <th>Estado</th>
+                <th>Cidade Desap.</th>
+                <th>Morava em</th>
+                <th>Data de Nasc.</th>
                 <th>Sexo</th>
+                <th>Nome da Mãe</th>
+                <th>Nome do Pai</th>
+                <th>Contato</th>
+                <th>Grau de Parentesco</th>
+                <th>Info. Relevantes</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>case.id</td>
-                <td>case.data_postagem</td>
-                <td>case.data_desaparecimento</td>
-                <td>case.nome</td>
-                <td>case.idade</td>
-                <td>case.cidade</td>
-                <td>case.estado</td>
-                <td>case.sexo</td>
-              </tr>
-              <tr>
-                <td>case.id</td>
-                <td>case.data_postagem</td>
-                <td>case.data_desaparecimento</td>
-                <td>case.nome</td>
-                <td>case.idade</td>
-                <td>case.cidade</td>
-                <td>case.estado</td>
-                <td>case.sexo</td>
-              </tr>
-            </tbody>
-            {/* {casesList.map(case => (
-              <tbody>
-                <tr>
-                  <td>case.id</td>
-                  <td>case.data_postagem</td>
-                  <td>case.data_desaparecimento</td>
-                  <td>case.nome</td>
-                  <td>case.idade</td>
-                  <td>case.cidade</td>
-                  <td>case.estado</td>
-                  <td>case.sexo</td>
+              {filteredCases.map((cases: any) => (
+                <tr key={cases.id}>
+                  <td>{cases.id}</td>
+                  <td>{cases.data_postagem}</td>
+                  <td>{cases.nome_completo}</td>
+                  <td>{cases.data_desaparecimento}</td>
+                  <td>{cases.cidade_desaparecimento}</td>
+                  <td>{cases.cidade}</td>
+                  <td>{cases.data_nascimento}</td>
+                  <td>{cases.sexo}</td>
+                  <td>{cases.nome_mae}</td>
+                  <td>{cases.nome_pai}</td>
+                  <td>{cases.contato}</td>
+                  <td>{cases.grau_parentesco}</td>
+                  <td>{cases.informacoes_relevantes}</td>
                 </tr>
-              </tbody>
-              ))} */}
+              ))}
+            </tbody>
           </table>
         </div>
       </main>
@@ -117,12 +166,11 @@ const StyledRegisteredCases = styled.section`
     background-color: #3F5F8B;
   }
 
-  .container-main-casos {
+  .container-main-cases {
     display: flex;
     justify-content: space-between;
     margin: auto;
-    width: 1465px;
-    max-width: 1465px;
+    width: 95%;
     padding: 50px 0;
 
     .content-left {
@@ -130,7 +178,7 @@ const StyledRegisteredCases = styled.section`
       flex-direction: column;
       margin: 0;
 
-      .container-registrar-caso {
+      .container-register-cases {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -148,7 +196,7 @@ const StyledRegisteredCases = styled.section`
           margin-bottom: 20px;
         }
 
-        .button-registrar {
+        .button-register {
           padding: 0;
           width: 315px;
           height: 85px;
@@ -165,7 +213,7 @@ const StyledRegisteredCases = styled.section`
         }
       }
 
-      .container-pesquisa-rapida {
+      .container-quick-search {
         padding: 50px 20px;
         margin-top: 50px;
         width: 345px;
@@ -198,10 +246,6 @@ const StyledRegisteredCases = styled.section`
               outline: 0;
 
               border: 1px solid #747474;
-            }
-
-            .input-id {
-              width: 100px;
             }
           }
 
@@ -251,6 +295,8 @@ const StyledRegisteredCases = styled.section`
       table {
         table-layout: fixed;
         border-collapse: collapse;
+        width: 100%;
+        max-width: 100%;
 
         th, td {
           padding: 5px;
@@ -272,8 +318,6 @@ const StyledRegisteredCases = styled.section`
           position: relative;
         }
       }
-
-
 
       tbody {
         display: block;
