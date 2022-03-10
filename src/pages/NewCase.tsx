@@ -212,6 +212,10 @@ export const NewCase = () => {
                     value={user}
                     placeholder='Usuário...'
                     id='user'
+                    onChange={(e) => {
+                      const value = e.target.value
+                      setUser(value)
+                    }}
                   />
                   <p>(6 a 12 caracteres)</p>
                   <input
@@ -219,6 +223,10 @@ export const NewCase = () => {
                     value={password}
                     placeholder='Senha...'
                     id='password'
+                    onChange={(e) => {
+                      const value = e.target.value
+                      setPassword(value)
+                    }}
                   />
                 </label>
                 <p>(8 a 16 caracteres)</p>
