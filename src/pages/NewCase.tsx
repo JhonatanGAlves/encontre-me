@@ -15,6 +15,8 @@ export const NewCase = () => {
   const [contact, setContact] = useState('')
   const [kinshipDegree, setKinshipDegree] = useState('Selecione...')
   const [relevantInformations, setRelevantInformations] = useState('')
+  const [user, setUser] = useState('')
+  const [password, setPassword] = useState('')
 
   // const dateNow = moment()
 
@@ -38,6 +40,8 @@ export const NewCase = () => {
       contato: contact,
       grau_parentesco: kinshipDegree,
       informacoes_relevantes: relevantInformations,
+      user: user,
+      password: password
     }
 
     try {
@@ -56,6 +60,8 @@ export const NewCase = () => {
       setContact('')
       setKinshipDegree('Selecione...')
       setRelevantInformations('')
+      setUser('')
+      setPassword('')
 
     } catch (error) {
       console.log('error', error)
@@ -198,6 +204,25 @@ export const NewCase = () => {
                   id='import-photo'
                 />
               </label>
+              <div className='form-user-password'>
+                <label>
+                  Crie um usuário e senha:
+                  <input
+                    type='text'
+                    value={user}
+                    placeholder='Usuário...'
+                    id='user'
+                  />
+                  <p>(6 a 12 caracteres)</p>
+                  <input
+                    type='password'
+                    value={password}
+                    placeholder='Senha...'
+                    id='password'
+                  />
+                </label>
+                <p>(8 a 16 caracteres)</p>
+              </div>
               <button
                 className='input-button'
                 type='submit'
@@ -304,6 +329,27 @@ const StyledMain = styled.main`
 
           textarea {
             height: 200px;
+          }
+
+        }
+        
+        .form-user-password {
+          margin-top: 20px;
+          width: 222px;
+          padding: 10px;
+          border-radius: 10px;
+          border: 1px solid #c4c4c4;
+          background-color: #FFFFFF;
+
+          input {
+            margin: 5px 0 0 0;
+            width: 200px;
+            border-radius: 0;
+          }
+
+          p {
+            font-size: 10px;
+            margin: 2px 0 0 0;
           }
         }
 
