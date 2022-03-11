@@ -51,8 +51,18 @@ const ContentHeader = styled.nav`
   align-items: center;
   margin: auto;
   width: 1465px;
-  max-width: 1465px;
-  min-width: 320px;
+
+  @media (max-width: 1465px) {
+    width: 1170px;
+  }
+
+  @media (max-width: 1170px) {
+    width: 820px;
+  }
+
+  @media (max-width: 820px) {
+    width: 390px;
+  }
 
   .left-header {
     text-decoration: none;
