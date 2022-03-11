@@ -7,6 +7,7 @@ export const NewCase = () => {
   const [fullName, setFullName] = useState('')
   const [disappearanceDate, setDisappearanceDate] = useState('')
   const [disappearanceCity, setDisappearanceCity] = useState('Selecione a cidade...')
+  const [state, setState] = useState('Selecione o estado...')
   const [city, setCity] = useState('Selecione a cidade...')
   const [birthDate, setBirthDate] = useState('')
   const [sexo, setSexo] = useState('Selecione o sexo')
@@ -32,6 +33,7 @@ export const NewCase = () => {
       nome_completo: fullName,
       data_desaparecimento: disappearanceDate,
       cidade_desaparecimento: disappearanceCity,
+      estado: state,
       cidade: city,
       data_nascimento: birthDate,
       sexo: sexo,
@@ -52,6 +54,7 @@ export const NewCase = () => {
       setFullName('')
       setDisappearanceDate('')
       setDisappearanceCity('Selecione a cidade...')
+      setState('Selecione o estado...')
       setCity('Selecione a cidade...')
       setBirthDate('')
       setSexo('Selecione o sexo')
@@ -113,6 +116,12 @@ export const NewCase = () => {
                 Desapareceu na cidade de:
                 <select name='cidade-desaparecimento' id='cidade-desaparecimento'>
                   <option value={disappearanceCity}></option>
+                </select>
+              </label>
+              <label>
+                Morador do estado de:
+                <select name='live-in-state' id='live-in-state'>
+                  <option value={state}></option>
                 </select>
               </label>
               <label>
